@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'apps.channels',
     'apps.keywords',
     'apps.rules',
+    'apps.reports',
 ]
 
 MIDDLEWARE = [
