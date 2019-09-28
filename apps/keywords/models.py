@@ -2,15 +2,6 @@ from django.db import models
 from apps.rules.models import Rule
 from apps.channels.models import Channel
 
-
-
-class Example(models.Model):
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.name
-
-
 KEYWORD_TYPES = (
     (1,'Video'),
     (2,'Text')
@@ -20,6 +11,13 @@ STATUS = (
     (1, 'Active'),
     (0,'Inactive'),
     )
+
+
+class Example(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 
 class Keyword(models.Model):
