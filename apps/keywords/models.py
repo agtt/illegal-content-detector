@@ -27,6 +27,13 @@ class Whitelist(models.Model):
         return self.url
 
 
+class Blacklist(models.Model):
+    url = models.URLField(blank=True, null=True)
+
+    def __str__(self):
+        return self.url
+
+
 class Keyword(models.Model):
     name = models.CharField(max_length=400)
     duration = models.DurationField(null=True, blank=True)

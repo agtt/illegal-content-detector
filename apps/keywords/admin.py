@@ -4,3 +4,4 @@ from .models import *
 admin.site.register(Keyword)
 admin.site.register(Example)
 admin.site.register(Whitelist)
+admin.site.register(Blacklist)
