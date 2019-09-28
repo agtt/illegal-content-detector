@@ -1,5 +1,6 @@
 from django.db import models
 from apps.channels.models import Channel
+from apps.keywords.models import Keyword
 
 STATUS = (
     (0, 'WAITING'),
@@ -13,6 +14,9 @@ class Report(models.Model):
     channel = models.ForeignKey(Channel, null=True, blank=True, on_delete=models.CASCADE,
                                 related_name="report_channel",
                                 verbose_name="Channel")
+    keyword = models.ForeignKey(Keyword, null=True, blank=True, on_delete=models.CASCADE,
+                                related_name="report_keyword",
+                                verbose_name="Keyword")
     date_added = models.DateField(blank=True, null=True)
     date_finished = models.DateField(blank=True, null=True)
     status = models.IntegerField(choices=STATUS, default=0)
