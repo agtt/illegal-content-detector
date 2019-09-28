@@ -1,4 +1,3 @@
-from googlesearch import search
 
 
 class Google:
