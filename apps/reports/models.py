@@ -1,6 +1,7 @@
 from django.db import models
 from apps.channels.models import Channel
 from apps.keywords.models import Keyword, Example
+from django.utils import timezone
 
 STATUS = (
     (0, 'WAITING'),
@@ -21,10 +22,18 @@ class Report(models.Model):
     example = models.ForeignKey(Example, on_delete=models.CASCADE,
                                 related_name="report_example",
                                 verbose_name="Example")
-    date_added = models.DateField(blank=True, null=True)
-    date_finished = models.DateField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    updated_at = models.DateTimeField(blank=True, null=True)
+    finished_at = models.DateTimeField(blank=True, null=True)
     status = models.IntegerField(choices=STATUS, default=0)
     type = models.IntegerField(choices=((0, 'LEGAL'), (1, 'ILLEGAL')), default=0)
 
     def __str__(self):
-        return self.url
+        return f'{self.channel} : {self.name} - {self.url}'
+
+    def save(self, *args, **kwargs):
+        """" On save, update timestamps """
+        self.updated_at = timezone.now()
+        if self.status:
+            self.finished_at = timezone.now()
+        return super(Report, self).save(*args, **kwargs)
