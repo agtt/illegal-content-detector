@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
+from .models import Keyword
 
-# Create your views here.
+
+def index(request):
+    keywords = Keyword.objects.all()
+    for val in keywords:
+        print(val)
+    return HttpResponse('OK')
