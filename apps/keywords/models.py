@@ -20,6 +20,8 @@ STATUS = (
     (1, 'Active'),
     (0,'Inactive'),
     )
+
+
 class Keyword(models.Model):
     name = models.CharField(max_length=400)
     duration = models.DurationField(null=True, blank=True)
