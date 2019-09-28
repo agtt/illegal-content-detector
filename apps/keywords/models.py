@@ -20,6 +20,13 @@ class Example(models.Model):
         return self.name
 
 
+class Whitelist(models.Model):
+    url = models.URLField(blank=True,null=True)
+
+    def __str__(self):
+        return self.url
+
+
 class Keyword(models.Model):
     name = models.CharField(max_length=400)
     duration = models.DurationField(null=True, blank=True)
