@@ -42,7 +42,7 @@ class Keyword(models.Model):
     rules = models.ForeignKey(Rule, null=True, blank=True, on_delete=models.CASCADE,
                               related_name="keyword_rule",
                               verbose_name="Rules")
-    active = models.IntegerField(default=1, choices=STATUS)
+    status = models.IntegerField(default=1, choices=STATUS)
 
     def __str__(self):
         return self.name
