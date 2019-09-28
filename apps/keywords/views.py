@@ -13,6 +13,7 @@ def index(request):
                 if channel.name == 'Google':
                     google = Google(name, keyword.rule.page)
                     for url in google.getlist():
-                        Report.objects.get_or_create(url=url, name=name, example=example, channel=channel, keyword=keyword)
+                        Report.objects.get_or_create(url=url, name=name, example=example, channel=channel,
+                                                     keyword=keyword)
             print(name)
     return HttpResponse('OK')

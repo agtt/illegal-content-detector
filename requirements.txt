@@ -8,7 +8,6 @@ Django==2.2.5
 django-celery==3.3.1
 django-celery-results==1.1.2
 freeze==1.0.10
-google==2.0.2
 google-api-python-client==1.7.11
 google-auth==1.6.3
 google-auth-httplib2==0.0.3
