@@ -5,6 +5,7 @@ from .models import Keyword
 def index(request):
     keywords = Keyword.objects.filter(status=1)  # Get Active Status
     for keyword in keywords:
-        for channel in keyword.channels.all():
-            print(channel)
+        for example in keyword.examples.all():
+            name = f'{keyword.name} {example}'
+            print(name)
     return HttpResponse('OK')
