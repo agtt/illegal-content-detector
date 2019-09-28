@@ -20,23 +20,12 @@ class Example(models.Model):
         return self.name
 
 
-class Whitelist(models.Model):
-    url = models.URLField(blank=True, null=True)
-
-    def __str__(self):
-        return self.url
-
-
-class Blacklist(models.Model):
-    url = models.URLField(blank=True, null=True)
-
-    def __str__(self):
-        return self.url
-
-
 class Website(models.Model):
-    url = models.URLField(blank=True, null=True)
+    url = models.CharField(max_length=300, blank=True, null=True)
     type = models.IntegerField(choices=((0, 'Whitelist'), (1, 'Blacklist')), default=0, blank=True, null=True)
+    channel_name = models.CharField(max_length=250, blank=True, null=True)
+    result_count = models.IntegerField(default=0)
+    illegal_count = models.IntegerField(default=0)
 
     def __str__(self):
         return self.url
