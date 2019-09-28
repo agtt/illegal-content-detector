@@ -26,7 +26,7 @@ class Report(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
     finished_at = models.DateTimeField(blank=True, null=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    type = models.IntegerField(choices=((0, 'LEGAL'), (1, 'ILLEGAL')), default=0)
+    type = models.IntegerField(choices=((1, 'LEGAL'), (2, 'ILLEGAL')), blank=True, null=True)
 
     def __str__(self):
         return f'{self.channel} : {self.name} - {self.url}'

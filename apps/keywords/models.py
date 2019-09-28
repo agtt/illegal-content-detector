@@ -39,9 +39,8 @@ class Keyword(models.Model):
     examples = models.ManyToManyField(Example, blank=True)
     # start_date = models.DateTimeField(null=True, blank=True)
     # end_date = models.DateTimeField(null=True, blank=True)
-    rules = models.ForeignKey(Rule, null=True, blank=True, on_delete=models.CASCADE,
-                              related_name="keyword_rule",
-                              verbose_name="Rules")
+    rule = models.ForeignKey(Rule, null=True, blank=True, on_delete=models.CASCADE, related_name="keyword_rule",
+                             verbose_name="Rule")
     status = models.IntegerField(default=1, choices=STATUS)
 
     def __str__(self):
